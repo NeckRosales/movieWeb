@@ -1,0 +1,12 @@
+h1 Mis Peliculas
+    nav
+        a(href='/') Home
+    ul
+        each movie in movies
+            li
+                p= movie.nombre 
+                p= movie.autor
+                p= movie.anio
+                form(method="POST" action="/users/my-movies")
+                  input(type="hidden" name="movie" value=movie._id)
+                  button(type="submit") Eliminar Pelicula

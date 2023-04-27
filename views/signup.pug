@@ -1,0 +1,22 @@
+if message
+    p=message
+block content
+    nav
+        a(href='/') Home
+        a(href='/users/login') Login 
+    div
+        form(method="POST" action="/users/signup")
+            #error
+                if error
+                    p.text-danger Error!!!
+            h1 Please Create account
+            //-input email
+            label(for="inputEmail") Email address
+            input(type="email" name="email" id="inputEmail" placeholder="Email address" required autofocus)
+            label( for="inputName") Name
+            input(type="text" name="name" id="inputName" placeholder="User Name" required)
+            //-input password
+            label(for="inputPassword") Password
+            input(type="password" name="password" id="inputPassword" placeholder="Password" required)
+            //-create button
+            button(type="submit") Create account

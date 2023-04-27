@@ -1,0 +1,19 @@
+if message
+    p=message
+block content
+    nav
+        a(href='/') Home
+    div
+        form(method="POST" action="/users/admin-login")
+            #error
+                if error
+                    p.text-danger Error!!!
+            h1 Please Login as an Admin
+            //-input email
+            label(for="inputEmail") Email address
+            input(type="email" name="email" id="inputEmail" placeholder="Email address" required autofocus)
+            //-input password
+            label(for="inputPassword") Password
+            input(type="password" name="password" id="inputPassword" placeholder="Password" required)
+            //-signIn button
+            button(type="submit") Login in

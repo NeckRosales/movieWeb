@@ -1,0 +1,24 @@
+if message
+    p=message
+html
+  head
+    title Home
+  body
+    h1 Home 
+    nav
+      if session.email
+        form(method="POST" action="/users/logout")
+          button(type="submit") Logout
+        a(href='/users/my-movies') My movies
+      else
+        a(href='/users/login') Login
+        a(href='/admin/login') Admin Login
+    ul
+        each movie in movies
+            li
+                p= movie.nombre 
+                p= movie.autor
+                p= movie.anio
+                form(method="POST" action="/users/add")
+                  input(type="hidden" name="id" value=movie._id)
+                  button(type="submit") Agregar Pelicula 
